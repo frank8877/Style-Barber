@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selecciona un profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .left-panel {
+      width: 65%;
+    }
+
+    .right-panel {
+      width: 30%;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .barber-grid {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .barber-card {
+      width: 150px;
+      background: white;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .barber-card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .barber-card.selected{
+      border: 2px solid #007a33;
+    }
+
+    .barber-name {
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .barber-role {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .rating {
+      margin-top: 5px;
+      color: gold;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+   
+
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .continue-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: #007a33;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .random-card {
+      width: 150px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-weight: 600;
+    }
+
+    .random-card img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .random-sub {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* parte 2 */
+
+    .shop-logo{
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    object-fit: contain;
+    background-color: black;
+}
+.sumary{
+    width: 30%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.sumary-services h4{
+    margin-bottom: 0.5rem;
+}
+
+ .sumary-services .item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+
+.btn-continue{
+    background-color: #007a33;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.6rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+ @media(max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .container, .sumary{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .service{
+        padding-right: 4rem;
+    }
+
+    .toggle-btn{
+        right: 0.5rem;
+        top: 0.5rem;
+        transform: none;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+        <nav class="breadcrumb">
+            <span>Servicios</span> &gt; <span>Equipo</span> &gt; <span>Horario</span> &gt; <span>Confirmar</span>
+        </nav>
+
+<div class="container">
+  <!-- Izquierda -->
+  <div class="left-panel">
+    <div class="title">Selecciona a un profesional del equipo</div>
+    <div class="barber-grid">
+      <div class="random-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="random">
+        <div>Cualquier profesional</div>
+        <div class="random-sub">Máxima disponibilidad</div>
+      </div>
+
+      <div class="barber-card">
+        <img src="/barbero1.jpg" alt="Barbero 1">
+        <div class="rating">⭐ 5.0</div>
+        <div class="barber-name">luis Perez</div>
+        <div class="barber-role">Barbero Profesional</div>
+      </div>
+
+      <div class="barber-card">
+        <img src="/barbero 2.jpg" alt="Barbero 2">
+        <div class="rating">⭐ 5.0</div>
+        <div class="barber-name">Carlos Correo</div>
+        <div class="barber-role">Barbero Profesional</div>
+      </div>
+
+      <div class="barber-card">
+        <img src="/barbero 3.jpg" alt="Barbero 3">
+        <div class="rating">⭐ 5.0</div>
+        <div class="barber-name">Sergio Muñoz</div>
+        <div class="barber-role">Barbero Profesional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Derecha -->
+   <aside class="sumary">
+        <div class="shop-info">
+            <img src="/logo.jpg" alt="Logo Barberia" class="shop-logo">
+        </div>
+        <strong>The Boss Barber Club</strong>
+        <p>carrera 59#129b-32</p>
+      
+     <div id="barber-selected" style="margin-bottom: 1rem;">
+
+     </div>
+    <div class="sumary-services" id="sumary-list">
+        <h4>Resumen</h4>
+
+      </div>
+      <hr>
+
+      <div class="total">
+       <strong>Total a pagar</strong>
+       <strong id="total-amount">$ 0</strong>
+      </div>
+
+      <button class="btn-continue"  disabled>Continuar</button>
+    </aside>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const servicios = JSON.parse(localStorage.getItem('serviciosSeleccionados')) || [];
+  const resumen = document.getElementById('sumary-list');
+  const totalElement = document.getElementById('total-amount');
+  let total = 0;
+
+  servicios.forEach(servicio => {
+    const item = document.createElement('div');
+    item.classList.add('item');
+    item.innerHTML = `
+      <span style="display:flex; justify-content:space-between;">
+        <span>${servicio.nombre}</span>
+        <span>$ ${servicio.precio}</span>
+      </span>
+      <p class="duration" style="color:gray; font-size: 0.8em;">${servicio.duracion}</p>
+    `;
+    resumen.appendChild(item);
+
+    total += parseFloat(servicio.precio.replace('.', ''));
+  });
+
+  totalElement.textContent = `$ ${total.toLocaleString('es-CO')}`;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const barberCards = document.querySelectorAll('.barber-card');
+  const barberContainer = document.getElementById('barber-selected');
+
+  barberCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Quitar selección previa
+      barberCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+
+      // Obtener información
+      const name = card.querySelector('.barber-name').textContent;
+      const role = card.querySelector('.barber-role').textContent;
+      const img = card.querySelector('img').getAttribute('src');
+
+      // Mostrar en contenedor derecho
+      barberContainer.innerHTML = `
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <img src="${img}" alt="${name}" style="width: 50px; height: 50px; border-radius: 0.5rem;">
+          <div>
+            <strong>${name}</strong><br>
+            <span style="font-size: 0.8rem; color: gray;">${role}</span>
+          </div>
+        </div>
+      `;
+    });
+  });
+});
+
+</script>
+
+
+</body>
+</html>

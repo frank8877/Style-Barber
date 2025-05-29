@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio-Style Barber</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon"  type="image/png" href="logo.jpg">
+  <style>
+    .card-option{
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card-option:hover{
+      transform: scale(1.03);
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0, 0.2);
+    }
+    .card-option.active{
+      border: 2px solid #dc3545;
+      box-shadow: 0 0 1rem rgba(220,53,69,0.7);
+    }
+
+    .icon-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .icon-social:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .bg-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .bg-facebook { background-color: #3b5998; }
+  .bg-twitter { background-color: #1da1f2; }
+  .bg-whatsapp { background-color: #25d366; }
+  </style>
+</head>
+
+<body id="top" style="background-image: url(/fondo.avif); ">
+
+
+  <div class="container bg-white min-vh-100 p-0">
+    
+<div class="bg-danger text-white text-center py-2">
+    En Style Barber no solo te damos estilo. Te devolvemos la confianza.
+    <a href="#" class="text-white ms-2 text-decoration-underline"></a>
+</div>
+
+<div class="container py-3 d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+        <a href="#" class="btn btn-danger fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <i class="fas fa-user me-2"></i>Iniciar Sesion
+      </a>
+    </div>
+    <div class="d-flex gap-2">
+     <a href="#" class="icon-social bg-instagram"><i class="fab fa-instagram"></i></a>
+     <a href="#" class="icon-social bg-facebook"><i class="fab fa-facebook"></i></a>
+     <a href="#" class="icon-social bg-twitter"><i class="fab fa-twitter"></i></a>
+     <a href="#" class="icon-social bg-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</div>
+
+<!--codigo modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModallabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModallabel">Iniciar Sesion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginform">
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electronico</label>
+            <input type="email" class="form-control" id="email" placeholder="usuario@correo.com">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <div class="input-group">
+            <input type="password" class="form-control" id="password" placeholder="********">
+            <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
+               <i id="toggleIcon" class="fas fa-eye"></i>
+            </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-danger">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+ <img src="logo.jpg" alt="Logo" style="height: 120px;">
+ <p class="fw-bold mt-2">Classic cuts & shaves <br><small class="text-muted">Since 2025</small></p>
+</div>
+
+<!-- MENÚ RESPONSIVO Y PEGADO -->
+<nav class="navbar navbar-expand-md bg-danger sticky-top shadow-sm border-top border-bottom">
+  <div class="container justify-content-between">
+    <a class="navbar-brand fw-bold" href="#">Style Barber</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link fw-bold   border-2" href="#top" onclick="scrollToSection('top',this)">INICIO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#">CITAS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#top" onclick="scrollToSection('galeria', this)">GALERIA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="#equipo" onclick="scrollToSection('equipo',this)">EQUIPO</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-md-4 d-flex">
+            <div class="card-option position-relative w-100 border rounded overflow-hidden" style="height: 300px;" onclick="scrollToSection('galeria',null)">
+                <img src="Galeria.jpg" class="img-fluid rounded" alt="Galeria">
+                <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white px-4 py-2 fw-bold shadow">GALERIA</div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="card-option position-relative w-100 border rounded overflow-hidden" style="height: 300px;" onclick="selectCard(this)">
+                <img src="man-8765248_1280.jpg" class="img-fluid rounded" alt="Citas">
+                <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white px-4 py-2 fw-bold shadow">CITAS</div>
+            </div>
+        </div>
+        <div class="col-md-4 d-flex">
+            <div class="card-option position-relative w-100 border rounded overflow-hidden" style="height: 300px;" onclick="scrollToSection('equipo',null)">
+                <img src="equipo barberos.jpg" class="img-fluid rounded" alt="barberos">
+                <div class="position-absolute bottom-0 start-50 translate-middle-x bg-white px-4 py-2 fw-bold shadow">EQUIPO</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5 text-center">
+ <img src="logo.jpg" class="img-fluid mb-4" alt="Logo Style Barber" style="max-width:  300px;">
+
+ <p>
+    En Style Barber nos distinguimos de otras barberias por nuestra vision, mision y valores ofreciendo un servicio al cliente excepcional y eficaz, que es lo que mas resalta e identifica esta Barberia.
+ </p>
+ <p>
+    Aqui cada cliente es tratado con respeto, precision y caracter. Nuestro espacio esta diseñado para que te  sientas comodo,seguro y renovado.Nos especializamos en cortes clasicos,modernos y afeitados de precision, pero lo que realmente cultivamos es la confianza.
+ </p> 
+ <p>
+    Ya sea que vengas por un corte rapido, un cambio de look o un momento de relajacion, en Style Barber te garanatizamos calidad,estilo y un trato inigualable.
+ </p>  
+ <strong>Style Barber — Más que una barbería, un estilo de vida.</strong>
+</div>
+
+<div class="container my-5 text-center">
+    <h2 class="fw-bold">Visita Style Barber</h2>
+     <p>Bogota, Carrera 59#129b-32.</p>
+<div class="row justify-content-center my-4">
+    <div class="col-md-4 mb-3">
+        <div class="card shadow">
+            <img src="barberi sitio.jpg" class="card-img-top" alt="Foto barberia">
+            <div class="card-body">
+               <h5 class="card-title">Style Barber Bogota</h5>
+               <p class="card-text mb-1">
+                ⭐⭐⭐⭐⭐<br>
+                <small>70 reseñas Google</small>
+               </p> 
+               <a href="#" class="btn btn-dark mt-2">Ver mas</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.900319190683!2d-74.05089762609352!3d4.769414641346798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f859dcf80dc5f%3A0xb3a785cdb939b191!2sCentro%20Comercial%20Mirandela%20Plaza!5e0!3m2!1ses!2sco!4v1685143541493!5m2!1ses!2sco"
+         width="100%" height="250" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+
+ <h2 class="fw-bold">Galeria Style Barber</h2>
+<div id="galeria" class="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-5 g-3 mt-4">
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero1.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 1">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero 2.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 2">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero 3.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 3">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="equipo barberos.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 4">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barberi sitio.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 5">
+     </div>
+   </div>
+  </div>
+  <br>
+  <br>
+  <h2 class="fw-bold">Equipo Style Barber</h2>
+  <div id="equipo" class="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-5 g-3 mt-4">
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero1.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 1">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero 2.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 2">
+    </div>
+  </div>
+  <div class="col">
+    <div class="ratio ratio-1x1">
+      <img src="barbero 3.jpg" class="w-100 h-100 object-fit-cover rounded shadow-sm" alt="Foto 3">
+    </div>
+    </div>
+   </div>
+  </div>
+</div>
+
+
+  <!-- NUEVO SCRIPT -->
+<script>
+  // Scroll suave y marcar nav activo
+  function scrollToSection(id, element) {
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    } else if(id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Si se pasa el elemento (link clickeado), actualizar clase activo
+    if (element) {
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.classList.remove('active', 'border-bottom', 'border-danger', 'border-2');
+      });
+      element.classList.add('active', 'border-bottom', 'border-danger', 'border-2');
+    }
+  }
+
+  // Al cargar la página, marcar INICIO activo por defecto
+  window.onload = () => {
+    const inicioLink = document.querySelector('.navbar-nav .nav-link[href="#top"]') || document.querySelector('.navbar-nav .nav-link[href="#"]');
+    if (inicioLink) {
+      inicioLink.classList.add('active', 'border-bottom', 'border-danger', 'border-2');
+    }
+  };
+   function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const icon = document.getElementById('toggleIcon');
+    const isPassword = passwordInput.type === 'password';
+
+    passwordInput.type = isPassword ? 'text' : 'password';
+    icon.classList.toggle('fa-eye');
+    icon.classList.toggle('fa-eye-slash');
+  }
+
+  const loginModal = document.getElementById('loginModal');
+  const loginForm = document.getElementById('loginForm');
+
+  loginModal.addEventListener('hidden.bs.modal', function () {
+    loginForm.reset();
+
+    // También puedes asegurarte de ocultar la contraseña si estaba visible
+    const passwordInput = document.getElementById('password');
+    const icon = document.getElementById('toggleIcon');
+    passwordInput.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  });
+</script>
+
+
+<a href="https://wa.me/573106055073" target="_blank" class="btn btn-success rounded-circle position-fixed bottom-0 end-0 m-4" style="width:  60px; height: 60px;">
+    <i class="fab fa-whatsapp fs-4"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--footer-->
+<footer class="bg-dark text-white pt-4 pb-2 mt-5">
+  <div class="container text-center text-md-start">
+    <div class="row">
+
+      <!-- Logo o nombre -->
+      <div class="col-md-4 mb-3">
+        <h5 class="text-uppercase">Mi Barbería</h5>
+        <p>Ofrecemos los mejores cortes y estilos modernos para que te veas increíble.</p>
+      </div>
+
+      
+
+      <!-- Contacto / Redes -->
+      <div class="col-md-4 mb-3">
+        <h5 class="text-uppercase">Contáctanos</h5>
+        <p><i class="fas fa-phone-alt"></i> +57 310 605 50 73</p>
+        <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 bg-secondary">
+    © 2025 Mi Barbería. Todos los derechos reservados.
+  </div>
+</footer>
+
+
+</body>
+</html>

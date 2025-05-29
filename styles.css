@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #fafafa;
+    color: #111;
+}
+
+.container{
+    max-width: 60%;
+}
+
+.breadcrumb{
+    color: gray;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btn{
+    padding: 0.5rem 2rem;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+    width: 150px;
+    text-align: center;
+}
+
+.btn.active {
+    background-color:#007a33;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #007a33;
+    box-shadow: 0 0 8px rgba(58, 99, 241, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+h2{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.services{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service{
+    border: 1px solid #ccc;
+    border-radius: 0.8rem;
+    background-color: white;
+    padding: 1rem;
+    position: relative;
+    transition: border 0.3s;   
+}
+
+
+.service.selected{
+    border: 1px solid #007a33 ;
+    box-shadow: 0 0 10px rgba(58, 99, 241, 0.2);
+}
+
+.service h3{
+    font-weight: bold;
+}
+
+.service .duration{
+    font-size: 0.9rem;
+    color: gray;
+    margin: 0.3rem 0;
+}
+
+.service .description{
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0.3rem 0;
+}
+
+.service .price{
+    font-weight: bold;
+}
+
+.service button {
+    align-items: flex-end;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #007a33;
+    color: white;
+    
+}
+
+.service .add {
+    background-color: #007a33;
+    color: white;
+}
+
+.service .remove{
+    background-color: #3a63f1;
+    color: white;
+}
+
+.sumary{
+    width: 30%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+
+.shop-info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shop-logo{
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    object-fit: contain;
+    background-color: black;
+}
+
+.sumary-services h4{
+    margin-bottom: 0.5rem;
+}
+
+ .sumary-services .item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #ddd; 
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.btn-continue{
+    background-color: #007a33;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.6rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-continue:disabled{
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+.service.selected .toggle-btn {
+    background-color: red;
+    color: white;
+  }
+
+  @media(max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .container, .sumary{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .service{
+        padding-right: 4rem;
+    }
+
+    .toggle-btn{
+        right: 0.5rem;
+        top: 0.5rem;
+        transform: none;
+    }
+}
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 1rem;
+}

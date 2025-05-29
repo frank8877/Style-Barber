@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar servicios - Barberia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <span>Servicios</span> &gt; <span>Equipo</span> &gt; <span>Horario</span> &gt; <span>Confirmar</span>
+        </nav>
+        <h1>Seleccionar servicios</h1>
+
+        <button class="btn active">Todos</button>
+
+        <h2>Todos los servicios</h2>
+
+        <div class="service">
+                <h3>Corte Gold</h3>
+                <p class="duration">70min</p>
+                <p class="description">
+                    Lleva tu corte con mascarilla de carbon, lavado de cabello, peinado, fragancia y masaje en hombros.
+                </p>
+                <p class="price">$38.000</p>
+                <button class="toggle-btn " data-name="Corte Gold" data-price="38.000" onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service" >
+                <h3>Corte Platinum</h3>
+                <p class="duration">60min</p>
+                <p class="description">
+                    Lleva un corte con peinado y fragancia después de tu servicio 
+                </p>
+                <p class="price">$ 28.000</p>
+                <button class="toggle-btn " data-name="Corte Platinum" data-price="28.000"  onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Corte Black Label</h3>
+                <p class="duration">80min</p>
+                <p class="description">
+                    Lleva tu corte, lavado,limpieza, exfoliante, mascarilla de carbón , mascarilla de colageno, hidratante, masaje en hombros, perfume y peinado 
+                </p>
+                <p class="price">$ 49.000</p>
+                <button class="toggle-btn " data-name="Corte Black Label" data-price="49.000" onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Corte y Barba Platinum</h3>
+                <p class="duration">80min</p>
+                <p class="description">
+                    Lleva tu corte sencillo, marcación de barba con navaja, aceite hidratante, peinado y fragancia después de tu servicio 
+                </p>
+                <p class="price">$ 59.000</p>
+                <button class="toggle-btn " data-name="Corte y Barba Platinum" data-price="59.000"  onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Corte y Barba Black Label</h3>
+                <p class="duration">80min</p>
+                <p class="description">
+                    Corte,marcación de barba con navaja, aceite hidratante,lavado de cabello ,limpieza, exfoliante, mascarilla de carbón , mascarilla de colageno, hidratante, masaje en hombros, perfume y peinado 
+                </p>
+                <p class="price">$ 69.000</p>
+                <button class="toggle-btn" data-name="Corte y Barba Black Label" data-price="69.000"  onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Barba Sola</h3>
+                <p class="duration">35min</p>
+                <p class="description">Recorte de barba, marcación con navaja, aceite hidratante, mascarilla en zona nariz, fragancia después de tu servicio</p>
+                <p class="price">$ 30.000</p>
+                <button class="toggle-btn " data-name="Barba Sola" data-price="30.000" onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Cejas</h3>
+                <p class="duration">7min</p>
+                <p class="description">Si las agregas con tu servicio te quedan la perilacion de cejas en 5.000</p>
+                <p class="price">$ 10.000</p>
+                <button class="toggle-btn " data-name="Cejas" data-price="10.000"  onclick="toggleService(this)">+</button>
+            </div>
+
+            <div class="service">
+                <h3>Shampoo</h3>
+                <p class="duration">10min</p>
+                <p class="description">lavado sencillo y buen aroma</p>
+                <p class="price">$ 6.000</p>
+                <button class="toggle-btn " data-name="Shampoo" data-price="6.000"  onclick="toggleService(this)">+</button>
+
+            </div>
+        </div>
+    </div>
+    
+    <aside class="sumary">
+        <div class="shop-info">
+            <img src="/logo.jpg" alt="Logo Barberia" class="shop-logo">
+        </div>
+        <strong>The Boss Barber Club</strong>
+        <p>carrera 59#129b-32</p>
+      </div>
+    </div>
+
+    <div class="sumary-services" id="sumary-list">
+        <h4>Resumen</h4>
+
+      </div>
+      <hr>
+
+      <div class="total">
+       <strong>Total a pagar</strong>
+       <strong id="total-amount">$ 0</strong>
+      </div>
+
+      <button class="btn-continue"  disabled>Continuar</button>
+    </aside>
+    <script>
+  function toggleService(button) {
+    const service = button.closest('.service');
+    const isSelected = service.classList.contains('selected');
+    const name = button.getAttribute('data-name');
+    const priceStr = button.getAttribute('data-price');
+    const price = parseFloat(priceStr.replace('.', ''));
+    const duration = service.querySelector('.duration')?.textContent || '';
+    const summaryList = document.getElementById('sumary-list');
+    const totalAmount = document.getElementById('total-amount');
+
+    if (!isSelected) {
+      service.classList.add('selected');
+      button.textContent = '−';
+
+      if (!document.getElementById(`resumen-${name}`)) {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.id = `resumen-${name}`;
+        item.innerHTML = `
+          <span style="display:flex; justify-content:space-between;">
+            <span>${name}</span>
+            <span>$ ${priceStr}</span>
+          </span>
+          <p class="duration" style="color:gray; font-size: 0.8em;">${duration}</p>
+        `;
+        summaryList.appendChild(item);
+      }
+
+    } else {
+      service.classList.remove('selected');
+      button.textContent = '+';
+
+      const itemToRemove = document.getElementById(`resumen-${name}`);
+      if (itemToRemove) {
+        itemToRemove.remove();
+      }
+    }
+
+    // Recalcular total
+    let total = 0;
+    document.querySelectorAll('.service.selected .toggle-btn').forEach(btn => {
+      const p = parseFloat(btn.getAttribute('data-price').replace('.', ''));
+      total += p;
+    });
+    totalAmount.textContent = `$ ${total.toLocaleString('es-CO')}`;
+
+    actualizarBotonContinuar();
+  }
+  function actualizarBotonContinuar() {
+  const btnContinuar = document.querySelector('.btn-continue');
+  const haySeleccionados = document.querySelectorAll('.service.selected').length > 0;
+  btnContinuar.disabled = !haySeleccionados;
+}
+
+ document.addEventListener('DOMContentLoaded', () => {
+    const btnContinuar = document.querySelector('.btn-continue');
+   btnContinuar.addEventListener('click', () => {
+  const serviciosSeleccionados = Array.from(
+    document.querySelectorAll('.service.selected')
+  ).map(service => {
+    const btn = service.querySelector('.toggle-btn');
+    return {
+      nombre: btn.getAttribute('data-name'),
+      precio: btn.getAttribute('data-price'),
+      duracion: service.querySelector('.duration')?.textContent || ''
+    };
+  });
+
+  // Guardar en localStorage
+  localStorage.setItem('serviciosSeleccionados', JSON.stringify(serviciosSeleccionados));
+
+  // Redirigir a la página del barbero
+  window.location.href = `equipo.html`;
+});
+
+  });
+</script>
+
+  
+</body>
+</html>
